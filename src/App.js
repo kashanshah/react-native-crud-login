@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from "redux";
 import firebase from '@firebase/app';
 import '@firebase/auth';
 import ReduxThunk from  'redux-thunk';
 import Reducers from './reducers';
-import LoginForm from './components/LoginForm';
-import {Header} from "./components/common";
+import Router from './routers/Router';
 
 class App extends Component{
     componentWillMount(){
@@ -26,13 +24,10 @@ class App extends Component{
         const store = createStore(Reducers, {}, applyMiddleware(ReduxThunk));
         return (
             <Provider store={store}>
-                <View>
-                    <Header headerText="Login"/>
-                    <LoginForm/>
-                </View>
+                <Router />
             </Provider>
         );
     };
-};
+}
 
 export default App;

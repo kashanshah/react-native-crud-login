@@ -1,15 +1,14 @@
 import {EMAIL_CHANGED, PASSWORD_CHANGED, LOGIN_USER_SUCCESS, LOGIN_USER_FAIL, SPINNER_LOADING} from '../actions/types';
 
 const INITIAL_STATE = {
-    email: '',
-    password: '',
+    email: 'kashanshah@hotmail.com',
+    password: '1234567',
     user: null,
     error: '',
     loading:false
 };
 
 export default AuthReducer = (state = INITIAL_STATE, action) => {
-    console.log(action);
     switch (action.type) {
         case EMAIL_CHANGED:
             return {
@@ -26,6 +25,7 @@ export default AuthReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 INITIAL_STATE,
                 user: action.payload,
+                loading: false
             };
         case LOGIN_USER_FAIL:
             return {
